@@ -1,21 +1,21 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 929334,
-    "totalActiveTime": 5589
+    "totalFocusTime": 1166441,
+    "totalActiveTime": 41098
   },
   "files": {
     "server.js": {
-      "pending": 506,
-      "focus": 218183
+      "pending": 2011,
+      "focus": 224748
     },
     "package.json": {
-      "pending": 1008,
-      "focus": 164255
+      "pending": 29880,
+      "focus": 273121
     },
     ".gitignore": {
       "pending": 0,
-      "focus": 379249
+      "focus": 472096
     },
     "config/db.js": {
       "pending": 508,
@@ -48,6 +48,10 @@
     "views/dashboard.ejs": {
       "pending": 514,
       "focus": 1776
+    },
+    ".env": {
+      "pending": 5132,
+      "focus": 28618
     }
   }
 }
