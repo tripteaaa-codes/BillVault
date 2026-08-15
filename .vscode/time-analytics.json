@@ -1,0 +1,53 @@
+{
+  "version": "1.0",
+  "project": {
+    "totalFocusTime": 929334,
+    "totalActiveTime": 5589
+  },
+  "files": {
+    "server.js": {
+      "pending": 506,
+      "focus": 218183
+    },
+    "package.json": {
+      "pending": 1008,
+      "focus": 164255
+    },
+    ".gitignore": {
+      "pending": 0,
+      "focus": 379249
+    },
+    "config/db.js": {
+      "pending": 508,
+      "focus": 4921
+    },
+    "controllers/authController.js": {
+      "pending": 509,
+      "focus": 89077
+    },
+    "middleware/authMiddleware.js": {
+      "pending": 508,
+      "focus": 69314
+    },
+    "models/user.js": {
+      "pending": 505,
+      "focus": 41472
+    },
+    "routes/authRoutes.js": {
+      "pending": 512,
+      "focus": 14847
+    },
+    "views/login.ejs": {
+      "pending": 515,
+      "focus": 889
+    },
+    "views/register.ejs": {
+      "pending": 504,
+      "focus": 1847
+    },
+    "views/dashboard.ejs": {
+      "pending": 514,
+      "focus": 1776
+    }
+  }
+}
