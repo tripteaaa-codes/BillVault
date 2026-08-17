@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
-app.use("/api/auth", billRoutes);
+app.use("/api/bills", billRoutes);
 
 const PORT = process.env.PORT || 5000;
 

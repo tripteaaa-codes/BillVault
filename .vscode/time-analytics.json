@@ -1,21 +1,33 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 436650,
-    "totalActiveTime": 227596
+    "totalFocusTime": 3380259,
+    "totalActiveTime": 258182
   },
   "files": {
     "controllers/billController.js": {
-      "pending": 133083,
-      "focus": 281512
+      "pending": 134103,
+      "focus": 352206
     },
     "routes/billRoutes.js": {
-      "pending": 59244,
-      "focus": 95941
+      "pending": 82458,
+      "focus": 215417
     },
     "server.js": {
-      "pending": 35269,
-      "focus": 81163
+      "pending": 37719,
+      "focus": 628311
+    },
+    "routes/authRoutes.js": {
+      "pending": 3902,
+      "focus": 105487
+    },
+    "models/Bill.js": {
+      "pending": 0,
+      "focus": 4163
+    },
+    ".gitignore": {
+      "pending": 0,
+      "focus": 3961
     }
   }
 }

@@ -10,6 +10,8 @@ const {
 
 const protect = require("../middleware/authMiddleware");
 
+const router = express.Router();
+
 router.post("/", protect, addBill);
 
 router.get("/", protect, getBills);
