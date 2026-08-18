@@ -1,3 +1,5 @@
+const path = require("path");
+const fs = require("fs");
 const Bill = require("../models/Bill");
 
 const addBill = async (req, res) => {
@@ -243,10 +245,57 @@ const deleteBill = async (req, res) => {
     }
 };
 
+const getReceipt = async (req, res) => {
+    try {
+        const bill = await Bill.findOne({
+            _id: req.params.id,
+            user: req.userId
+        });
+
+        if (!bill) {
+            return res.status(404).json({
+                message: "Bill not found"
+            });
+        }
+
+        if (!bill.receipt || !bill.receipt.filename) {
+            return res.status(404).json({
+                message: "Receipt not found"
+            });
+        }
+
+        const filePath = path.join(
+            __dirname,
+            "..",
+            "uploads",
+            bill.receipt.filename
+        );
+
+        console.log("Receipt path:", filePath);
+        console.log("File exists:", fs.existsSync(filePath));
+
+        if (!fs.existsSync(filePath)) {
+            return res.status(404).json({
+                message: "Receipt file not found"
+            });
+        }
+
+        res.sendFile(filePath);
+
+    } catch (error) {
+        console.error("Get receipt error:", error);
+
+        res.status(500).json({
+            message: "Server error"
+        });
+    }
+};
+
 module.exports = {
     addBill,
     getBills,
     getBill,
     updateBill,
-    deleteBill
+    deleteBill,
+    getReceipt
 };

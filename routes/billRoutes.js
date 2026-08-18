@@ -5,7 +5,8 @@ const {
     getBills,
     getBill,
     updateBill,
-    deleteBill
+    deleteBill,
+    getReceipt
 } = require("../controllers/billController");
 
 const protect = require("../middleware/authMiddleware");
