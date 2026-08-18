@@ -1,21 +1,21 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 3380259,
-    "totalActiveTime": 258182
+    "totalFocusTime": 8705847,
+    "totalActiveTime": 709879
   },
   "files": {
     "controllers/billController.js": {
-      "pending": 134103,
-      "focus": 352206
+      "pending": 168729,
+      "focus": 628099
     },
     "routes/billRoutes.js": {
-      "pending": 82458,
-      "focus": 215417
+      "pending": 84134,
+      "focus": 301012
     },
     "server.js": {
       "pending": 37719,
-      "focus": 628311
+      "focus": 658612
     },
     "routes/authRoutes.js": {
       "pending": 3902,
@@ -27,7 +27,27 @@
     },
     ".gitignore": {
       "pending": 0,
-      "focus": 3961
+      "focus": 45843
+    },
+    "middleware/authMiddleware.js": {
+      "pending": 49825,
+      "focus": 198999
+    },
+    "middleware/uploadMiddleware.js": {
+      "pending": 365570,
+      "focus": 824294
+    },
+    "controllers/authController.js": {
+      "pending": 0,
+      "focus": 3474
+    },
+    "uploads/1787062831729-520815154.5544495.pdf": {
+      "pending": 0,
+      "focus": 9910
     }
+  },
+  "deleted": {
+    "active": 0,
+    "focus": 16960
   }
 }

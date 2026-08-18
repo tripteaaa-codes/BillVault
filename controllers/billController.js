@@ -1,9 +1,10 @@
 const Bill = require("../models/Bill");
 
-
-// ADD BILL
 const addBill = async (req, res) => {
     try {
+        console.log("BODY:", req.body);
+        console.log("FILE:", req.file);
+
         const {
             productName,
             brand,
@@ -22,17 +23,42 @@ const addBill = async (req, res) => {
             !purchaseDate
         ) {
             return res.status(400).json({
-                message: "Product name, category, price and purchase date are required"
+                message:
+                    "Product name, category, price and purchase date are required"
+            });
+        }
+
+        if (isNaN(Number(price)) || Number(price) < 0) {
+            return res.status(400).json({
+                message: "Price must be a valid positive number"
+            });
+        }
+
+        const purchase = new Date(purchaseDate);
+
+        if (isNaN(purchase.getTime())) {
+            return res.status(400).json({
+                message: "Invalid purchase date"
+            });
+        }
+
+        const months = warrantyMonths
+            ? Number(warrantyMonths)
+            : 0;
+
+        if (isNaN(months) || months < 0) {
+            return res.status(400).json({
+                message: "Warranty months must be a valid number"
             });
         }
 
         let warrantyExpiry = null;
 
-        if (warrantyMonths && Number(warrantyMonths) > 0) {
-            warrantyExpiry = new Date(purchaseDate);
+        if (months > 0) {
+            warrantyExpiry = new Date(purchase);
 
             warrantyExpiry.setMonth(
-                warrantyExpiry.getMonth() + Number(warrantyMonths)
+                warrantyExpiry.getMonth() + months
             );
         }
 
@@ -41,12 +67,20 @@ const addBill = async (req, res) => {
             productName,
             brand,
             category,
-            price,
-            purchaseDate,
-            warrantyMonths: warrantyMonths || 0,
+            price: Number(price),
+            purchaseDate: purchase,
+            warrantyMonths: months,
             warrantyExpiry,
             storeName,
-            notes
+            notes,
+            receipt: req.file
+                ? {
+                    filename: req.file.filename,
+                    path: req.file.path,
+                    mimetype: req.file.mimetype,
+                    size: req.file.size
+                }
+                : undefined
         });
 
         res.status(201).json({
@@ -58,13 +92,12 @@ const addBill = async (req, res) => {
         console.error("Add bill error:", error);
 
         res.status(500).json({
-            message: "Server error"
+            message: "Server error",
+            error: error.message
         });
     }
 };
 
-
-// GET ALL USER BILLS
 const getBills = async (req, res) => {
     try {
         const bills = await Bill.find({
@@ -82,13 +115,12 @@ const getBills = async (req, res) => {
         console.error("Get bills error:", error);
 
         res.status(500).json({
-            message: "Server error"
+            message: "Server error",
+            error: error.message
         });
     }
 };
 
-
-// GET SINGLE BILL
 const getBill = async (req, res) => {
     try {
         const bill = await Bill.findOne({
@@ -110,13 +142,12 @@ const getBill = async (req, res) => {
         console.error("Get bill error:", error);
 
         res.status(500).json({
-            message: "Server error"
+            message: "Server error",
+            error: error.message
         });
     }
 };
 
-
-// UPDATE BILL
 const updateBill = async (req, res) => {
     try {
         const bill = await Bill.findOne({
@@ -177,13 +208,12 @@ const updateBill = async (req, res) => {
         console.error("Update bill error:", error);
 
         res.status(500).json({
-            message: "Server error"
+            message: "Server error",
+            error: error.message
         });
     }
 };
 
-
-// DELETE BILL
 const deleteBill = async (req, res) => {
     try {
         const bill = await Bill.findOne({
@@ -207,11 +237,11 @@ const deleteBill = async (req, res) => {
         console.error("Delete bill error:", error);
 
         res.status(500).json({
-            message: "Server error"
+            message: "Server error",
+            error: error.message
         });
     }
 };
-
 
 module.exports = {
     addBill,

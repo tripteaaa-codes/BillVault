@@ -9,10 +9,16 @@ const {
 } = require("../controllers/billController");
 
 const protect = require("../middleware/authMiddleware");
+const upload = require("../middleware/uploadMiddleware");
 
 const router = express.Router();
 
-router.post("/", protect, addBill);
+router.post(
+    "/",
+    protect,
+    upload.single("receipt"),
+    addBill
+);
 
 router.get("/", protect, getBills);
 
