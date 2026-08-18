@@ -24,6 +24,8 @@ router.get("/", protect, getBills);
 
 router.get("/:id", protect, getBill);
 
+router.get("/:id/receipt", protect, getReceipt);
+
 router.put("/:id", protect, updateBill);
 
 router.delete("/:id", protect, deleteBill);

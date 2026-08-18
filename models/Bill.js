@@ -54,6 +54,24 @@ const billSchema = new mongoose.Schema(
         notes: {
             type: String,
             trim: true
+        },
+
+        receipt: {
+            filename: {
+                type: String
+            },
+
+            path: {
+                type: String
+            },
+
+            mimetype: {
+                type: String
+            },
+
+            size: {
+                type: Number
+            }
         }
     },
     {
