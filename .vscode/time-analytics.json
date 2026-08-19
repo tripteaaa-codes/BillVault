@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "project": {
-    "totalFocusTime": 13080976,
-    "totalActiveTime": 1406557
+    "totalFocusTime": 16868367,
+    "totalActiveTime": 1415821
   },
   "files": {
     "controllers/billController.js": {
@@ -15,11 +15,11 @@
     },
     "server.js": {
       "pending": 37719,
-      "focus": 658612
+      "focus": 681879
     },
     "routes/authRoutes.js": {
       "pending": 3902,
-      "focus": 105487
+      "focus": 111708
     },
     "models/Bill.js": {
       "pending": 72410,
@@ -39,7 +39,7 @@
     },
     "controllers/authController.js": {
       "pending": 0,
-      "focus": 3474
+      "focus": 97618
     },
     "uploads/1787062831729-520815154.5544495.pdf": {
       "pending": 0,
@@ -47,7 +47,15 @@
     },
     "uploads/1787064166560-223214966.94967902.pdf": {
       "pending": 0,
-      "focus": 10203
+      "focus": 532546
+    },
+    "config/db.js": {
+      "pending": 2678,
+      "focus": 16618
+    },
+    ".env": {
+      "pending": 6586,
+      "focus": 93330
     }
   },
   "deleted": {
